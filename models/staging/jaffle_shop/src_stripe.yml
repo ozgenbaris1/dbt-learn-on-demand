@@ -6,6 +6,10 @@ sources:
     tables:
       - name: payment
         description: Raw payment data.
+        loaded_at_field: _batched_at
+        freshness:
+          warn_after: {count: 12, period: hour}     # Warn if _etl_loaded_at is more than 12 hours from last snapshot freshness run time
+          error_after: {count: 24, period: hour}    # Raise error _etl_loaded_at it is more than 24 hours from last snapshot freshness run time
         columns:
           - name: id
             description: Primary key for payments
