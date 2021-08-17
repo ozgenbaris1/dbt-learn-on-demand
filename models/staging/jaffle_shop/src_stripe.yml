@@ -9,3 +9,6 @@ sources:
         columns:
           - name: id
             description: Primary key for payments
+            tests:
+              - unique
+              - not_null
