@@ -10,7 +10,8 @@ final as (
     select 
         order_id,
         o.customer_id,
-        p.amount
+        p.amount,
+        o.order_date
     from orders o
     left join payments p
     using(order_id)
