@@ -1,0 +1,19 @@
+dbt-learn-on-demand:
+  config:
+    send_anonymous_usage_stats: False
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: bj43131.eu-central-1
+
+      # User/password auth
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+
+      role: transformer
+      database: analytics
+      warehouse: transforming
+      schema: dbt_bariso
+      threads: 1
+      client_session_keep_alive: False

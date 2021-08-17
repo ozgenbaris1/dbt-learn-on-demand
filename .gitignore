@@ -2,5 +2,8 @@
 target/
 dbt_modules/
 logs/
+.user.yml
 
 .venv
+
+set_env_var.sh
